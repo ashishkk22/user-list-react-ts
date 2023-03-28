@@ -2,7 +2,7 @@ import { useAppSelector } from "../store/store";
 
 const Profile = () => {
   const [person] = useAppSelector(state => state.person.person);
-  console.log("rendered profile");
+
   return (
     person && (
       <div className="w-[22rem] rounded-[3rem] bg-white shadow-xl flex flex-col justify-center items-center ml-8 p-4">

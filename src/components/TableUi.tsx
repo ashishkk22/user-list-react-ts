@@ -6,7 +6,7 @@ import { addPerson, removePerson } from "../store/features/personSlice";
 const TableUi = () => {
   const peopleObj = useAppSelector(state => state.people.persons);
   const dispatch = useAppDispatch();
-  console.log("table rendered");
+
   return (
     <table className="min-w-[50vw]">
       <thead>
