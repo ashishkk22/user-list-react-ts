@@ -1,11 +1,41 @@
+import { useEffect, useState } from "react";
 import { useAppSelector } from "../store/store";
 
 const Profile = () => {
   const [person] = useAppSelector(state => state.person.person);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      //if has space then show the div else follow the cursor
+      if (window.innerWidth < 950) {
+        setPosition({ x: event.clientX, y: event.clientY });
+      } else {
+        setPosition({ x: 0, y: 0 });
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   return (
     person && (
-      <div className="w-[22rem] rounded-[3rem] bg-white shadow-xl flex flex-col justify-center items-center ml-8 p-4">
+      <div
+        className="w-[22rem] rounded-[3rem] bg-white shadow-xl flex flex-col justify-center items-center ml-8 p-4"
+        style={
+          position.x !== 0
+            ? {
+                position: "absolute",
+                left: position.x,
+                top: position.y,
+              }
+            : {}
+        }
+      >
         <img
           className="h-6/12 w-6/12 rounded-full"
           src={person.avatar}
