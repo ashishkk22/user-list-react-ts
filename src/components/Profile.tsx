@@ -1,12 +1,11 @@
-import React from "react";
-import { PeopleType } from "../constants/peopleData";
-type ProfileProps = {
-  person: PeopleType;
-};
-const Profile = ({ person }: ProfileProps) => {
+import { useAppSelector } from "../store/store";
+
+const Profile = () => {
+  const [person] = useAppSelector(state => state.person.person);
+  console.log("rendered profile");
   return (
-    <div className="ml-8 p-4 rounded-">
-      <div className="w-[22rem] rounded-[3rem] bg-white shadow-xl flex flex-col justify-center items-center ">
+    person && (
+      <div className="w-[22rem] rounded-[3rem] bg-white shadow-xl flex flex-col justify-center items-center ml-8 p-4">
         <img
           className="h-6/12 w-6/12 rounded-full"
           src={person.avatar}
@@ -52,7 +51,7 @@ const Profile = ({ person }: ProfileProps) => {
           </div>
         </div>
       </div>
-    </div>
+    )
   );
 };
 

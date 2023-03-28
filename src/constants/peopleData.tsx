@@ -9,7 +9,7 @@ export type PeopleType = {
   role: "Manager" | "Read";
   removable: boolean;
 };
-export const people: PeopleType[] = [
+export const peopleObj: PeopleType[] = [
   {
     id: 1,
     email: "george.bluth@reqres.in",
