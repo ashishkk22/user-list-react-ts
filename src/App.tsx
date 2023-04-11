@@ -1,6 +1,6 @@
 import { useState } from "react";
-import TableUi from "./components/TableUi";
-import Profile from "./components/Profile";
+import TableUi from "./components/UserTable/UserTable";
+import Profile from "./components/ProfileCard/ProfileCard";
 
 function App() {
   return (

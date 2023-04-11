@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { PeopleType } from "../../constants/peopleData";
+import { PeopleType } from "../../types/PeopleTypes";
 
 type PersonState = {
   person: PeopleType[];
@@ -9,6 +9,7 @@ type PersonState = {
 const initialState: PersonState = {
   person: [],
 };
+
 export const PersonSlice = createSlice({
   name: "person",
   initialState: initialState,

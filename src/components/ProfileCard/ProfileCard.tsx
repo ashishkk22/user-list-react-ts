@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAppSelector } from "../store/store";
+import { useAppSelector } from "../../store/store";
 
 const Profile = () => {
   const [person] = useAppSelector(state => state.person.person);
